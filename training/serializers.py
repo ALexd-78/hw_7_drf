@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from training.models import Course, Lesson
+from users.models import User
 
 
 class CourseSerializer(serializers.ModelSerializer):
