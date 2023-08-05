@@ -26,7 +26,7 @@ class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='курс', null=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}, {self.course}'
 
     class Meta:
         verbose_name = 'урок'
