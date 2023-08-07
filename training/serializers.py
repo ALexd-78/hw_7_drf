@@ -6,6 +6,7 @@ from users.models import User
 
 class CourseSerializer(serializers.ModelSerializer):
     '''сериализатор курса'''
+    lesson_count = serializers.IntegerField(source='lesson_set.count', default=0, read_only=True)
     class Meta:
         model = Course
         fields = '__all__'
