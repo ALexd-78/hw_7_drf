@@ -1,0 +1,14 @@
+[
+  {
+    "model": "training.payments",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "date": "2023-08-08",
+      "course": 2,
+      "lesson": 10,
+      "payment_amount": 2950,
+      "payment_way": "перевод"
+    }
+  }
+]

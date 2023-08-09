@@ -1,0 +1,45 @@
+[
+  {
+    "model": "training.course",
+    "pk": 2,
+    "fields": {
+      "title": "Python Developer",
+      "description": "course for beginer",
+      "preview": ""
+    }
+  },
+  {
+    "model": "training.lesson",
+    "pk": 4,
+    "fields": {
+      "title": "DRF",
+      "description": "Django REST framework (DRF) — это библиотека, которая работает со стандартными моделями Django для создания гибкого и мощного API для проекта.",
+      "preview": "",
+      "link_to_video": "https://www.youtube.com/watch?v=i-uvtDKeFgE&list=PLA0M1Bcd0w8xZA3Kl1fYmOH_MfLpiYMRs",
+      "course": 2
+    }
+  },
+  {
+    "model": "training.lesson",
+    "pk": 10,
+    "fields": {
+      "title": "Django",
+      "description": "Django — это свободный фреймворк для веб-приложений на языке Python, использующий шаблон проектирования MVC.",
+      "preview": "",
+      "link_to_video": "https://www.youtube.com/watch?v=FyTL1bnUx5I&list=PLA0M1Bcd0w8xO_39zZll2u1lz_Q-Mwn1F",
+      "course": 2
+    }
+  },
+  {
+    "model": "training.payments",
+    "pk": 1,
+    "fields": {
+      "user": 3,
+      "date": "2023-08-08",
+      "course": 2,
+      "lesson": 4,
+      "payment_amount": 2900,
+      "payment_way": "перевод"
+    }
+  }
+]
