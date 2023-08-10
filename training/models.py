@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 from users.models import User
@@ -39,8 +40,7 @@ class Lesson(models.Model):
 
 class Payments(models.Model):
     '''модель платежей'''
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateField(auto_now_add=True, verbose_name='дата оплаты')
 
     course = models.ForeignKey(Course, on_delete=models.CASCADE, **NULLABLE)
@@ -49,10 +49,11 @@ class Payments(models.Model):
     payment_amount = models.PositiveIntegerField(default=0, verbose_name='сумма платежа')
     payment_way = models.CharField(max_length=50, verbose_name='способ оплаты')
 
+
     def __str__(self):
-        return f'{self.user}, {self.date}, {self.course if self.course else self.lesson}, {self.payment_amount}, {self.payment_way}'
+        return f'{self.owner}, {self.date}, {self.course if self.course else self.lesson}, {self.payment_amount}, {self.payment_way}'
 
     class Meta:
         verbose_name = 'оплата'
         verbose_name_plural = "оплаты"
-        ordering = ('user',)
+        ordering = ('owner',)
