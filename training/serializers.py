@@ -15,7 +15,7 @@ class CourseSerializer(serializers.ModelSerializer):
     '''сериализатор курса'''
 
     '''поле вывода всех уроков в курсе'''
-    lessons = LessonSerializer(many=True, source='lesson_set', default=0, read_only=True)
+    lessons = LessonSerializer(many=True, source='lesson_set', read_only=True)
 
     '''поле для вывода количества уроков в курсе'''
     lesson_count = serializers.IntegerField(source='lesson_set.count', default=0, read_only=True)
