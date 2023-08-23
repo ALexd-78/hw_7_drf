@@ -13,5 +13,4 @@ class IsOwnerOrStaff(BasePermission):
 class IsOwner(BasePermission):
 
     def has_permission(self, request, view):
-        if request.user == view.get_object().owner:
-            return True
+        return request.user == view.get_object().owner
