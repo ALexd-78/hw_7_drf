@@ -20,6 +20,6 @@ class LessonAdmin(admin.ModelAdmin):
 
 @admin.register(Payments)
 class PaymentsAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'date', 'course', 'lesson', 'payment_amount', 'payment_way')
-    search_fields = ('owner', 'date', 'payment_amount', 'payment_way')
-    list_filter = ('owner', 'date', 'payment_amount', 'payment_way')
+    list_display = ('owner', 'date', 'course', 'lesson', 'payment_amount', 'payment_method')
+    search_fields = ('owner', 'date', 'payment_amount', 'payment_method')
+    list_filter = ('owner', 'date', 'payment_amount', 'payment_method')

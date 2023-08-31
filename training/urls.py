@@ -5,7 +5,8 @@ from rest_framework.routers import DefaultRouter
 
 from training.views import CourseViewSet, LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, \
     LessonUpdateAPIView, LessonDestroyAPIView, PaymentListAPIView, SubscriptionCreateAPIView, SubscriptionListAPIView, \
-    SubscriptionRetrieveAPIView, SubscriptionDeleteAPIView
+    SubscriptionRetrieveAPIView, SubscriptionDestroyAPIView, PaymentIntentCreateView, PaymentIntentConfirmView, \
+    PaymentRetrieveAPIView, PaymentCreateAPIView
 
 app_name = TrainingConfig.name
 
@@ -19,11 +20,15 @@ urlpatterns = [
     path('lessons/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson-update'),
     path('lessons/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson-delete'),
 
+    path('payments/create/', PaymentCreateAPIView.as_view(), name='payment_create'),
     path('payments/', PaymentListAPIView.as_view(), name='payment-list'),
+    path('payments/<int:pk>/', PaymentRetrieveAPIView.as_view(), name='payment_retrieve'),
+    path('payment-intent/create/', PaymentIntentCreateView.as_view(), name='payment_intent_create'),
+    path('payment-method/confirm/', PaymentIntentConfirmView.as_view(), name='payment_method_confirm'),
 
     path('subscription/create/', SubscriptionCreateAPIView.as_view(), name='subscription_create'),
     path('subscriptions/', SubscriptionListAPIView.as_view(), name='subscription_list'),
     path('subscription/<int:pk>/', SubscriptionRetrieveAPIView.as_view(), name='subscription_retrieve'),
-    path('subscription/delete/<int:pk>/', SubscriptionDeleteAPIView.as_view(), name='subscription_delete')
+    path('subscription/delete/<int:pk>/', SubscriptionDestroyAPIView.as_view(), name='subscription_delete')
 
 ] + router.urls
